@@ -1,33 +1,37 @@
 import { Formik, Form, Field, ErrorMessage} from 'formik';
+
 function NotesForm(){
     return(
         <Formik
             initialValues={{ title: "", message : ""}}
             validate= { values => {
-                const errors = {}
+                const errors = {};
                 if(!values.title){
-                    errors.title = "El titulo es requerido"
+                    errors.title = "The title is required"
                 } else if(!values.message){
-                    errors.message = "El mensaje es requerido"
+                    errors.message = "The message is required"
                 }
                 return errors;
             }}
         >
             {
-                ()=>{
+                ({isSubmitting})=>(
                     <Form className="form">
                       <div>
-                        <label htmlFor="title">Titulo</label>
+                        <label htmlFor="title">Title</label>
                         <Field type="text" name="title" />
                         <ErrorMessage name="title" component="p" />
                       </div>
                       <div>
-                        <label htmlFor="message">Que quieres guardar?</label>
-                        <Field as="textarea" name="body" />
-                        <ErrorMessage name="title" component="p" />
+                        <label htmlFor="message">What do you want to keep?</label>
+                        <Field as="textarea" name="message" />
+                        <ErrorMessage name="message" component="p" />
                       </div>
-                    </Form>;
-                }
+                      <button type='submit' disabled={isSubmitting}>
+                        {isSubmitting ?  "Saving your note..." : "Save note"}
+                      </button>
+                    </Form>
+                )
             }
             
         </Formik>

@@ -1,4 +1,5 @@
-import NoteList from "./notes/NotesList"
+import NotesForm from "./notes/NotesForm"
+import NotesList from "./notes/NotesList"
 
 
 function App() {
@@ -6,9 +7,10 @@ function App() {
 
   return (
     <div className="App">
-      <NoteList />
+      <NotesForm />
+      <NotesList />
     </div>
-  )
+  );
 }
 
 export default App

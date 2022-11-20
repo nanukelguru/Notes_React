@@ -1,18 +1,18 @@
 import Note from "./Note";
 
 const list = [
-  { title: "Hola", message: "Mundo", id: "123" },
-  { title: "Segunda nota", message: "Mundo", id: "1234" },
+  { title: "Hi", message: "World", id: "123" },
+  { title: "Second note", message: "World", id: "1234" }
 ];
 
-function NoteList(){
+function NotesList(){
     return(
         <div>
             {
-                list.map(note =><Note key={note.id} title={note.title} message={note.message}/>)
+            list.map(note =><Note key={note.id} title={note.title} message={note.message}/>)
             }
         </div>
     )
 
 }
-export default NoteList;
+export default NotesList;
