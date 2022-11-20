@@ -1,15 +1,15 @@
+import { useContext } from "react";
+import { NotesContext } from "../contexts/NotesContext";
 import Note from "./Note";
 
-const list = [
-  { title: "Hi", message: "World", id: "123" },
-  { title: "Second note", message: "World", id: "1234" }
-];
 
 function NotesList(){
+    const { notes } = useContext(NotesContext);
     return(
         <div>
+            <p>Tienes {notes.length} Saved Notes</p>
             {
-            list.map(note =><Note key={note.id} title={note.title} message={note.message}/>)
+            notes.map(note =><Note key={note.id} title={note.title} message={note.message}/>)
             }
         </div>
     )
