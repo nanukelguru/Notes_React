@@ -8,11 +8,15 @@ function NotesList(){
     return (
       <div>
         <p style={{ textAlign: "right" }}>You have {notes.length} notes saved</p>
-        {notes.map((note) => (
-          <Note key={note.id} title={note.title} message={note.message} />
-        ))}
+        {
+        notes.map(note => <Note
+            key={note.id}
+            id={note.id}
+            title={note.title}
+            message={note.message} />)
+        }
       </div>
-    );
+    )
 
 }
 export default NotesList;
